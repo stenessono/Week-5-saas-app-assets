@@ -21,29 +21,54 @@
   <div class="background-container">   
     <div class="clip clip1"></div>
     <div class="clip clip2"></div>
-    <div class="clip clip3"></div>
-    <div class="navbar-top">
-      <a class="nav-rightside" href="#">
-        <i class="fas fa-angle-left"></i>
-        Main Demo
-      </a>
-      <nav>
-        <a href="#">Demos <i class="fas fa-chevron-down"></i> </a>
-        <a href="#">Docs <i class="fas fa-chevron-down"></i> </a>
+    <!--<div class="clip clip3"></div>
+    <div class="clip clip4"></div>-->
+    <button class="navbar-toggler" aria-expanded="false" aria-controls="navbarDropdown">
+      <span>&#9776;</span>
+    </button>
+    <div class="container navbar-top">
+      <nav class="navtop">
+        <ul class="nav1">
+          <li>
+            <a class="nav-rightside" href="#"><i class="fas fa-angle-left"></i>Main Demo</a>
+          </li>
+          <li>
+            <ul class="nav-leftside">
+              <li>
+                <a href="#">Demos <i class="fas fa-chevron-down"></i> </a>
+              </li>
+              <li>
+                <a href="#" class="navdoc">Docs <i class="fas fa-chevron-down"></i> </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <nav class="navbottom">
+        <img class="logo" src="./project_logo/logo.svg" alt="Brand Logo">
+        <ul class="nav2">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">Features</a>
+          </li>
+          <li>
+            <a href="#">Learn</a>
+          </li>
+          <li>
+            <a href="#">Pricing</a>
+          </li>
+          <li>
+            <a href="#">Hire Us</a>
+          </li>
+          <li>
+            <input type="button" value="Buy Now" class="link linktop">
+          </li>
+        </ul>
       </nav>
     </div>
-    <div class="navbar-logo">
-      <img class="logo" src="./project_logo/logo.svg" alt="Brand Logo">
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Features</a>
-        <a href="#">Learn</a>
-        <a href="#">Pricing</a>
-        <a href="#">Hire Us</a>
-      </nav>
-      <input type="button" value="Buy Now" class="link">
-    </div>
-    <header class="top-header marge">
+    <header class="top-header">
       <div class="container empowering-teams">
         <div class="teams-wrapper">
           <h2>
@@ -173,7 +198,7 @@
       <div class="paragraph p3"> Combine Components </div>
       <div class="paragraph p4"> Page Layouts </div>
     </div>
-    <div class="container video-front">
+    <div class="video-front">
       <img class="banner-front" src="./banners/banner_two.jpg" alt="Front Banner Website">
       <span>
         <a href="https://www.youtube.com/watch?v=pvPC2C83f0Y" class="video-btn">
@@ -217,7 +242,8 @@
   </section>
   <!--Section Pricing-->
   <section>
-    <div class="container header-pricing">
+    <div class="container bottom-line"></div>
+    <div class="header-pricing">
       <h2>Pricing</h2>
       <p>No additional costs. Pay for what you use.</p> 
     </div>
@@ -448,7 +474,7 @@
         <option style="background-image: url(./logo_icons/brazil-flag.png);" value="BZ">Brazil</option>
         <option style="background-image: url(./logo_icons/japan-flag.png);" value="JPN">Japan</option>-->
       </select>  
-      <script>
+     <!-- <script>
         var select = document.getElementById("select"),
                   arr = ["&#128531","United States","Canada"];
         for (var i = 0; i < arr.length; i++)
@@ -459,7 +485,6 @@
           select.insertBefore(option,select.lastChild);
         }
       </script>
-        <!--
         <ul>
           <li>
             <img src="./logo_icons/usa-flag.png" alt="US flag" class="flag">
@@ -484,5 +509,26 @@
     <h6 class="cright">Front. 202 Htmlstream. Allright reserved.</h6>
     <h6>When you visit or interact with our sites, services or tools, we or our authorised service providers may use cookies for storing information to <br> help provide you with a better, faster and safer experience and for marketing purposes.</h6>
   </div>
+
+  <script>
+    const nav = document.getElementById("topNav");
+    window.onscroll = function() {
+      if (window.pageYOffset > 100) {
+        nav.classList.add("sticky");
+      }
+      else{
+        nav.classList.remove("sticky");
+      }
+    }
+
+    const navButton = document.querySelector('button[aria-expanded]');
+
+    function toggleNav({ target }) {
+      const expanded = target.getAttribute('aria-expanded') === 'true' || false;
+      navButton.setAttribute('aria-expanded', !expanded);
+    }
+
+    navButton.addEventListener('click', toggleNav);
+  </script>
 </body>
 </html>
